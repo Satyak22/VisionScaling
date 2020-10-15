@@ -44,7 +44,7 @@ There are images stored in S3 and their corresponding image_keys in PostgreSQL. 
 ##### Where does this project prove useful?
 For companies having their warehouses store and organize their products, this pipeline helps in the automation of that process.
 
-![Robot][images/usecase.png]
+![Robot](images/usecase.png)
 
 As seen in the above picture, that the robot is trying to organize the objects based on color. Similarly, using the images, this pipeline helps in organizing the objects into different bins based on the category it belongs to. For eg, in a manufacturing industry, organizing parts of the machine based on its type. Is it a general purpose part?, Is it specific to machine A? and so on. In a warehouse, there are multiple such belts that are carrying objects which creates the need for producing results within seconds or even less.
 
