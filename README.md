@@ -55,5 +55,7 @@ For the real world applications, the incoming images will be stored in S3 and th
 
 ### Architecture
 
+![Pipeline](images/Pipeline.png)
 
 ### Dataset
+The dataset being used is ImageNet Large Scale Visual Recognition Challenge 2017 (ILSVRC2017). It is around 57GB in size and has images across 1000 different categories. The database can be found here.
