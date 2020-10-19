@@ -83,7 +83,7 @@ The architecture contains the following components:
 
 1. *S3*: This is used to store the image files.
 2. *PostgreSQL*: The image keys which are used for accessing image files from S3 are stored in PostgreSQL. Additionally, the results produced from the Consumer are stored here.
-3. *Kafka Cluster*: This is the main processing part. There are 4 nodes in the cluster - 1 Producer and 3 Consumers.
+3. *Kafka Cluster*: This is the main processing part. There are 3 nodes in the cluster - 1 Producer and 2 Consumers.
 	1. Producer: It fetches the image keys from PostgreSQL and publishes to the Kafka topic.
 	2. Consumer: It consumes image keys from the Kafka topic, downloads the corresponding image files from S3, runs the inferences using SqueezeNet model and stores the result back to PostgreSQL.
 4. *Faust*: It is a Python stream processing library that is used to process Kafka streams on the Consumer. It is highly available, distributed and flexible that works with various Python libraries.
