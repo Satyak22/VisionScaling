@@ -12,7 +12,7 @@ The following things are need to be installed on each of the nodes in the cluste
 
 1. Java 8
 
-	> sudo apt-get install openjdk-8-jdk
+	`sudo apt-get install openjdk-8-jdk`
 
 2. Confluent Kafka
 
@@ -20,23 +20,23 @@ The following things are need to be installed on each of the nodes in the cluste
 
 3. Python library for confluent kafka
 
-	> pip3 install confluent-kafka
+	`pip3 install confluent-kafka`
 
 4. Pytorch for executing Deep Learning model
 	
-	> pip3 install torch==1.6.0+cpu torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+	`pip3 install torch==1.6.0+cpu torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html`
 
 5. Faust for stream processing on Consumer Nodes
 	
-	> pip3 install -U faust
+	`pip3 install -U faust`
 
 6. psycopg2 - Python library for interacting with PostgreSQL database
 
-	> pip3 install psycopg2
+	`pip3 install psycopg2`
 
 7. boto3 - Python library for interacting with AWS EC2 and S3.
 
-	> pip3 install boto3
+	`pip3 install boto3`
 
 ### Database Instructions
 
@@ -81,7 +81,7 @@ The architecture contains the following components:
 
 1. *S3*: This is used to store the image files.
 2. *PostgreSQL*: The image keys which are used for accessing image files from S3 are stored in PostgreSQL. Additionally, the results produced from the Consumer are stored here.
-3. *Kafka Cluster*: This is the main processing part. There are 4 nodes in the cluster.
+3. *Kafka Cluster*: This is the main processing part. There are 4 nodes in the cluster - 1 Producer and 3 Consumers.
 	1. Producer: It fetches the image keys from PostgreSQL and publishes to the Kafka topic.
 	2. Consumer: It consumes image keys from the Kafka topic, downloads the corresponding image files from S3, runs the inferences using SqueezeNet model and stores the result back to PostgreSQL.
 4. *Faust*: It is a Python stream processing library that is used to process Kafka streams on the Consumer. It is highly available, distributed and flexible that works with various Python libraries.
