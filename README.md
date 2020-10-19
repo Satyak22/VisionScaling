@@ -1,6 +1,8 @@
 # VisionScaling
 
-The project shows a pipeline for recognizing images in real time. It simulates message streaming using Kafka and classifies image in real time.
+The project shows a pipeline for recognizing images in real time. It simulates streaming using Kafka and classifies image in real time.
+The presentation link can be found [here](https://docs.google.com/presentation/d/1AXTj4XnN3J07t_TvsdBeXB4pNT_Kj0cNsFCqiK6HjQo/edit?usp=sharing)
+The demo of the UI can be found [here](https://drive.google.com/file/d/1p6be5DqKEEJNd4OUQgZcsqx8HiPI3gm0/view?usp=sharing)
 
 ### Cluster Setup Instructions
 
@@ -8,13 +10,33 @@ There are 4 nodes in the cluster where one node acts as a Producer and the rest 
 
 The following things are need to be installed on each of the nodes in the cluster.
 
-1) Java 8
-2) Confluent Kafka - here
-3) Python library for confluent kafka
-4) Pytorch for executing Deep Learning model
-5) Faust for stream processing on Consumer Nodes
-6) psycopg2 - Python library for interacting with PostgreSQL database
-7) boto3 - Python library for interacting with AWS EC2 and S3.
+1. Java 8
+
+	> sudo apt-get install openjdk-8-jdk
+
+2. Confluent Kafka
+
+	The tutorial for installing confluent Kafka can be found [here](https://docs.confluent.io/current/installation/installing_cp/deb-ubuntu.html#systemd-ubuntu-debian-install)
+
+3. Python library for confluent kafka
+
+	> pip3 install confluent-kafka
+
+4. Pytorch for executing Deep Learning model
+	
+	> pip3 install torch==1.6.0+cpu torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
+5. Faust for stream processing on Consumer Nodes
+	
+	> pip3 install -U faust
+
+6. psycopg2 - Python library for interacting with PostgreSQL database
+
+	> pip3 install psycopg2
+
+7. boto3 - Python library for interacting with AWS EC2 and S3.
+
+	> pip3 install boto3
 
 ### Database Instructions
 
@@ -55,7 +77,20 @@ For the real world applications, the incoming images will be stored in S3 and th
 
 ### Architecture
 
+The architecture contains the following components:
+
+1. *S3*: This is used to store the image files.
+2. *PostgreSQL*: The image keys which are used for accessing image files from S3 are stored in PostgreSQL. Additionally, the results produced from the Consumer are stored here.
+3. *Kafka Cluster*: This is the main processing part. There are 4 nodes in the cluster.
+	1. Producer: It fetches the image keys from PostgreSQL and publishes to the Kafka topic.
+	2. Consumer: It consumes image keys from the Kafka topic, downloads the corresponding image files from S3, runs the inferences using SqueezeNet model and stores the result back to PostgreSQL.
+4. *Faust*: It is a Python stream processing library that is used to process Kafka streams on the Consumer. It is highly available, distributed and flexible that works with various Python libraries.
+
+Here is the pipeline diagram:
+
 ![Pipeline](images/Pipeline.png)
 
+![Kafka Cluster](images/KafkaCluster.png)
+
 ### Dataset
-The dataset being used is ImageNet Large Scale Visual Recognition Challenge 2017 (ILSVRC2017). It is around 57GB in size and has images across 1000 different categories. The database can be found here.
+The dataset being used is ImageNet Large Scale Visual Recognition Challenge 2017 (ILSVRC2017). It is around 55GB in size and has images across 1000 different categories. The dataset can be found [here](http://image-net.org/challenges/LSVRC/2017/downloads).
