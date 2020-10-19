@@ -1,8 +1,10 @@
 # VisionScaling
 
 The project shows a pipeline for recognizing images in real time. It simulates streaming using Kafka and classifies image in real time.
-The presentation link can be found [here](https://docs.google.com/presentation/d/1AXTj4XnN3J07t_TvsdBeXB4pNT_Kj0cNsFCqiK6HjQo/edit?usp=sharing)
-The demo of the UI can be found [here](https://drive.google.com/file/d/1p6be5DqKEEJNd4OUQgZcsqx8HiPI3gm0/view?usp=sharing)
+
+The presentation link can be found [here](https://docs.google.com/presentation/d/1AXTj4XnN3J07t_TvsdBeXB4pNT_Kj0cNsFCqiK6HjQo/edit?usp=sharing).
+
+The demo of the UI can be found [here](https://drive.google.com/file/d/1p6be5DqKEEJNd4OUQgZcsqx8HiPI3gm0/view?usp=sharing).
 
 ### Cluster Setup Instructions
 
