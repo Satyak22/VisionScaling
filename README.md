@@ -74,7 +74,7 @@ As seen in the above picture, that the robot is trying to organize the objects b
 
 
 ##### How would this work in a real world scenario?
-For the real world applications, the incoming images will be stored in S3 and their respective image keys will directly be streamed to Kafka topic. The rest of the pipeline remains the same which includes downloading, running the prediction model and writing the output to the database. The difference will be that the image keys will not be stored in PostgreSQl and directly streamed to Kafka cluster.
+For the real world applications, the incoming images will be stored in S3 and their respective image keys will directly be streamed to Kafka topic. The rest of the pipeline remains the same which includes downloading, running the prediction model and writing the output to the database. The difference will be that the image keys will not be stored in PostgreSQL and directly streamed to Kafka cluster.
 
 
 ### Architecture
