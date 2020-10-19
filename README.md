@@ -8,7 +8,7 @@ The demo of the UI can be found [here](https://drive.google.com/file/d/1p6be5DqK
 
 ### Cluster Setup Instructions
 
-There are 4 nodes in the cluster where one node acts as a Producer and the rest 3 acts as a Consumer.
+There are 3 nodes in the cluster where 1 node acts as a Producer and the rest 2 acts as a Consumer.
 
 The following things are need to be installed on each of the nodes in the cluster.
 
